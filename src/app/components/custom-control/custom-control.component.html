@@ -1,0 +1,30 @@
+<div (mousedown)="handleMousedown($event)" class="custom-select-container" [class.ng-has-value]="hasValue">
+
+	<div class="ng-value-container">
+        	<div class="ng-placeholder">{{placeholder}}</div>
+
+			<div class="custom-select-input">
+				<input #filterInput
+					type="text"
+					[attr.id]="labelForId">
+			</div>
+	
+	</div>
+
+
+	<div class="ng-spinner-loader" *ngIf="loading"></div>
+
+    <span *ngIf="showClear()" class="custom-clear-wrapper" title="{{clearAllText}}">
+        <span class="ng-clear" aria-hidden="true">×</span>
+    </span>
+
+    <span class="custom-arrow-wrapper">
+        <span class="ng-arrow"></span>
+    </span>
+
+	<app-custom-dropdown *ngIf="isOpen"
+		class="custom-dropdown-panel"
+		[position]="dropdownPosition">
+	</app-custom-dropdown>
+
+</div>
